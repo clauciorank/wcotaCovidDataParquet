@@ -16,7 +16,7 @@ jobs:
       - name: Install packages
         run: Rscript -e 'install.packages(c("arrow", "readr"))'
       - name: Render README
-        run: Rscript -e 'csvgz-to-parquet.R'
+        run: Rscript csvgz-to-parquet.R
       - name: Commit results
         run: |
           git add .
