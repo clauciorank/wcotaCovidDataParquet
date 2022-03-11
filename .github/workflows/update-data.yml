@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-r@v1
       - name: Install packages
-        run: Rscript -e 'install.packages(c("arrow", "readr"))'
+        run: Rscript -e 'install.packages(c("arrow", "readr", "dplyr"))'
       - name: Render README
         run: Rscript csvgz-to-parquet.R
       - name: Commit results
