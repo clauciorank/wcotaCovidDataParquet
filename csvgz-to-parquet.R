@@ -8,6 +8,7 @@ download.file('https://github.com/wcota/covid19br/raw/master/cases-brazil-cities
 data <- readr::read_csv(temp) |>
                        mutate(city = case_when(
                               grepl(pattern = 'CASO SEM LOCALIZAÇÃO DEFINIDA', city) ~ 'Todas',
+                              grepl(pattern = 'TOTAL', city) ~ 'Todas',
                               TRUE ~ city)) |>
                       mutate(state = case_when(
                               grepl(pattern = 'TOTAL', state) ~ 'Todos',
