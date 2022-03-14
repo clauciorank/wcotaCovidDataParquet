@@ -16,7 +16,8 @@ data <- data |> filter(!grepl(pattern = 'CASO SEM LOCALIZAÇÃO DEFINIDA', city)
                       mutate(city = case_when(
                               city == 'TOTAL' ~ 'Todas',
                               TRUE ~ city
-                      )) |> select(date, state, city, newDeaths, deaths, newCases, totalCases)
+                      )) |> select(date, state, city, newDeaths, deaths, newCases, totalCases) |>
+                      filter(as.date(date) > Sys.date()-365)
 
 data_todes <-
 data |> group_by(date, state) |>
